@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Africanfood - Restaurant Africain Authentique</title>
+    <meta name="description" content="Découvrez l'authenticité de la cuisine africaine chez Africanfood. Plats traditionnels, saveurs authentiques et ambiance chaleureuse dans un cadre moderne.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav__container">
+                <div class="nav__logo">
+                    <h2 data-testid="logo">Africanfood</h2>
+                </div>
+                
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#accueil" class="nav__link" data-testid="nav-accueil">Accueil</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#apropos" class="nav__link" data-testid="nav-apropos">À propos</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#plats" class="nav__link" data-testid="nav-plats">Nos plats</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#contact" class="nav__link" data-testid="nav-contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav__actions">
+                    <button class="btn btn--primary" id="reserve-btn" data-testid="button-reserve">
+                        Réserver une table
+                    </button>
+                    <button class="nav__toggle" id="nav-toggle" data-testid="nav-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero__container">
+            <div class="hero__content">
+                <h1 class="hero__title" data-testid="hero-title">
+                    Savourez l'Afrique authentique
+                </h1>
+                <p class="hero__description" data-testid="hero-description">
+                    Découvrez les saveurs traditionnelles du continent africain dans un cadre moderne et chaleureux. 
+                    Chaque plat raconte une histoire, chaque bouchée vous transporte.
+                </p>
+                <div class="hero__buttons">
+                    <button class="btn btn--primary btn--large" id="hero-order-btn" data-testid="button-order">
+                        Commander maintenant
+                    </button>
+                    <button class="btn btn--secondary btn--large" id="hero-learn-btn" data-testid="button-learn-more">
+                        En savoir plus
+                    </button>
+                </div>
+            </div>
+            <div class="hero__image">
+                <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                     alt="Plats africains traditionnels" 
+                     data-testid="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="apropos" class="about">
+        <div class="container">
+            <div class="about__grid">
+                <div class="about__content">
+                    <h2 class="section__title" data-testid="about-title">
+                        Notre passion pour l'authenticité
+                    </h2>
+                    <p class="about__text" data-testid="about-text">
+                        Chez Africanfood, nous célébrons la richesse culinaire de l'Afrique. Nos chefs passionnés 
+                        préparent chaque plat selon les recettes ancestrales, transmises de génération en génération.
+                    </p>
+                    <p class="about__text">
+                        De l'attiéké ivoirien au thiéboudienne sénégalais, en passant par le couscous maghrébin, 
+                        notre menu vous invite à un voyage gastronomique à travers tout le continent.
+                    </p>
+                    <div class="about__stats">
+                        <div class="stat">
+                            <h3 class="stat__number" data-testid="stat-dishes">50+</h3>
+                            <p class="stat__label">Plats traditionnels</p>
+                        </div>
+                        <div class="stat">
+                            <h3 class="stat__number" data-testid="stat-countries">15</h3>
+                            <p class="stat__label">Pays représentés</p>
+                        </div>
+                        <div class="stat">
+                            <h3 class="stat__number" data-testid="stat-experience">10</h3>
+                            <p class="stat__label">Années d'expérience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__image">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Intérieur du restaurant Africanfood" 
+                         data-testid="about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dishes Section -->
+    <section id="plats" class="dishes">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title" data-testid="dishes-title">Nos spécialités</h2>
+                <p class="section__description" data-testid="dishes-description">
+                    Découvrez une sélection de nos plats les plus appréciés, préparés avec amour et authenticité
+                </p>
+            </div>
+            
+            <div class="dishes__grid">
+                <!-- Dish 1 -->
+                <div class="dish__card" data-testid="card-menu-attieke">
+                    <div class="dish__image">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2081&q=80" 
+                             alt="Attiéké poisson grillé" 
+                             data-testid="img-menu-attieke">
+                    </div>
+                    <div class="dish__content">
+                        <div class="dish__header">
+                            <h3 class="dish__name">Attiéké Poisson</h3>
+                            <span class="dish__price" data-testid="price-attieke">3,500 FCFA</span>
+                        </div>
+                        <p class="dish__description">
+                            Spécialité ivoirienne : semoule de manioc accompagnée de poisson grillé et légumes frais.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Dish 2 -->
+                <div class="dish__card" data-testid="card-menu-yassa">
+                    <div class="dish__image">
+                        <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80" 
+                             alt="Poulet Yassa" 
+                             data-testid="img-menu-yassa">
+                    </div>
+                    <div class="dish__content">
+                        <div class="dish__header">
+                            <h3 class="dish__name">Poulet Yassa</h3>
+                            <span class="dish__price" data-testid="price-yassa">3,800 FCFA</span>
+                        </div>
+                        <p class="dish__description">
+                            Poulet mariné au citron et aux oignons, mijoté dans une sauce onctueuse aux épices africaines.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Dish 3 -->
+                <div class="dish__card" data-testid="card-menu-banku">
+                    <div class="dish__image">
+                        <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" 
+                             alt="Banku et poisson grillé" 
+                             data-testid="img-menu-banku">
+                    </div>
+                    <div class="dish__content">
+                        <div class="dish__header">
+                            <h3 class="dish__name">Banku & Tilapia</h3>
+                            <span class="dish__price" data-testid="price-banku">4,200 FCFA</span>
+                        </div>
+                        <p class="dish__description">
+                            Spécialité ghanéenne : pâte de maïs fermentée accompagnée de tilapia grillé et sauce pimentée.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section__footer">
+                <button class="btn btn--primary" id="see-more-btn" data-testid="button-see-more">
+                    Voir la suite
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Questions fréquentes</h2>
+                <p class="section__description">
+                    Trouvez rapidement les réponses à vos questions
+                </p>
+            </div>
+            
+            <div class="faq__container">
+                <div class="faq__item" data-testid="faq-item-0">
+                    <button class="faq__question" data-testid="faq-question-0">
+                        <span>Quels sont vos horaires d'ouverture ?</span>
+                        <span class="faq__icon" data-testid="faq-icon-0">+</span>
+                    </button>
+                    <div class="faq__answer" data-testid="faq-answer-0">
+                        <p>Nous sommes ouverts du lundi au dimanche de 11h00 à 23h00. Le vendredi et samedi, nous restons ouverts jusqu'à minuit pour vous accueillir plus longtemps.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item" data-testid="faq-item-1">
+                    <button class="faq__question" data-testid="faq-question-1">
+                        <span>Proposez-vous des plats à emporter ?</span>
+                        <span class="faq__icon" data-testid="faq-icon-1">+</span>
+                    </button>
+                    <div class="faq__answer" data-testid="faq-answer-1">
+                        <p>Oui, tous nos plats sont disponibles à emporter. Vous pouvez passer commande par téléphone ou directement sur place. Un délai de 15-20 minutes est nécessaire pour la préparation.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item" data-testid="faq-item-2">
+                    <button class="faq__question" data-testid="faq-question-2">
+                        <span>Effectuez-vous des livraisons ?</span>
+                        <span class="faq__icon" data-testid="faq-icon-2">+</span>
+                    </button>
+                    <div class="faq__answer" data-testid="faq-answer-2">
+                        <p>Nous proposons un service de livraison dans un rayon de 10 km autour du restaurant. La livraison est gratuite pour les commandes supérieures à 8,000 FCFA. Contactez-nous pour plus d'informations.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item" data-testid="faq-item-3">
+                    <button class="faq__question" data-testid="faq-question-3">
+                        <span>Comment puis-je faire une réservation ?</span>
+                        <span class="faq__icon" data-testid="faq-icon-3">+</span>
+                    </button>
+                    <div class="faq__answer" data-testid="faq-answer-3">
+                        <p>Vous pouvez réserver par téléphone, via notre site web ou directement en restaurant. Nous recommandons de réserver à l'avance, surtout pour les week-ends et les soirées.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Avis de nos clients</h2>
+                <p class="section__description">
+                    Découvrez ce que nos clients pensent de leur expérience chez Africanfood
+                </p>
+            </div>
+            
+            <div class="testimonials__slider" data-testid="testimonial-slider">
+                <div class="testimonials__container">
+                    <div class="testimonials__track" id="testimonials-track">
+                        <!-- Testimonials will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <button class="testimonials__nav testimonials__nav--prev" id="testimonial-prev" data-testid="testimonial-prev">
+                    &#8249;
+                </button>
+                <button class="testimonials__nav testimonials__nav--next" id="testimonial-next" data-testid="testimonial-next">
+                    &#8250;
+                </button>
+                
+                <div class="testimonials__dots" id="testimonials-dots">
+                    <!-- Dots will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta__content">
+                <h2 class="cta__title">Une envie de plats africains ?</h2>
+                <p class="cta__description">On vous attend !</p>
+                <button class="btn btn--white btn--large" id="cta-order-btn" data-testid="button-order-now">
+                    Commandez maintenant
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <h3 class="footer__title" data-testid="footer-title">Africanfood</h3>
+                    <p class="footer__description" data-testid="footer-description">
+                        Découvrez l'authenticité de la cuisine africaine dans un cadre moderne et chaleureux. 
+                        Chez Africanfood, nous célébrons les traditions culinaires du continent africain avec des plats préparés selon les recettes ancestrales.
+                    </p>
+                    
+                    <div class="footer__social" data-testid="social-links">
+                        <a href="#" class="social__link" data-testid="social-facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social__link" data-testid="social-youtube">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social__link" data-testid="social-instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.348-1.051-2.348-2.348 0-1.297 1.051-2.348 2.348-2.348 1.297 0 2.348 1.051 2.348 2.348 0 1.297-1.051 2.348-2.348 2.348zm7.718 0c-1.297 0-2.348-1.051-2.348-2.348 0-1.297 1.051-2.348 2.348-2.348 1.297 0 2.348 1.051 2.348 2.348 0 1.297-1.051 2.348-2.348 2.348z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social__link" data-testid="social-tiktok">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer__links">
+                    <h4 class="footer__subtitle" data-testid="footer-quick-links-title">Liens rapides</h4>
+                    <ul class="footer__list">
+                        <li><a href="#accueil" class="footer__link" data-testid="footer-link-accueil">Accueil</a></li>
+                        <li><a href="#apropos" class="footer__link" data-testid="footer-link-apropos">À propos</a></li>
+                        <li><a href="#plats" class="footer__link" data-testid="footer-link-plats">Nos plats</a></li>
+                        <li><a href="#" class="footer__link" data-testid="footer-link-reserve">Réserver</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__contact">
+                    <h4 class="footer__subtitle" data-testid="footer-contact-title">Contact</h4>
+                    <div class="contact__list">
+                        <div class="contact__item" data-testid="contact-address">
+                            <svg class="contact__icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            <span>123 Rue de la Paix, Abidjan</span>
+                        </div>
+                        <div class="contact__item" data-testid="contact-phone">
+                            <svg class="contact__icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            <span>+225 01 23 45 67 89</span>
+                        </div>
+                        <div class="contact__item" data-testid="contact-email">
+                            <svg class="contact__icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            <span>contact@africanfood.com</span>
+                        </div>
+                        <div class="support-24-7" data-testid="support-24-7">
+                            <svg class="contact__icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/>
+                            </svg>
+                            <span>Assistance 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <div class="footer__copyright">
+                    <p data-testid="copyright">© 2025 Africanfood. Tous droits réservés.</p>
+                </div>
+                <div class="footer__legal">
+                    <a href="#" class="footer__link" data-testid="footer-privacy">Politique de confidentialité</a>
+                    <a href="#" class="footer__link" data-testid="footer-terms">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
