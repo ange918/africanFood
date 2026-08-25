@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink text-white/80 font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-white;
+  }
+
+  ::selection {
+    @apply bg-accent text-ink;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-container px-5 sm:px-8;
+  }
+
+  /* Bouton pilule jaune façon LUZURIO */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-200;
+  }
+  .btn--primary {
+    @apply bg-accent text-ink hover:bg-accent-bright;
+  }
+  .btn--light {
+    @apply bg-white text-ink hover:bg-white/90;
+  }
+  .btn--outline {
+    @apply border border-white/20 text-white hover:border-accent hover:text-accent;
+  }
+  .btn--dark {
+    @apply bg-ink-card text-white hover:bg-ink-border;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-8 bg-accent;
+  }
+
+  .card {
+    @apply rounded-2xl border border-ink-border bg-ink-card;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-ink-border bg-ink-soft px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition focus:border-accent;
+  }
+  .field-label {
+    @apply mb-2 block text-xs font-medium uppercase tracking-wide text-white/50;
+  }
+}
