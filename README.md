@@ -42,13 +42,30 @@ data/                       # vehicles.ts, testimonials.ts, faq.ts (remplacés p
 lib/                        # constantes marque, helpers de formatage (prix, km, WhatsApp)
 ```
 
+## Back-office d'administration
+
+Un tableau de bord d'administration est disponible sur **`/admin`**, adossé à **Supabase**
+(PostgreSQL + Auth) :
+
+- Accès protégé par mot de passe (Supabase Auth, compte admin unique).
+- **CRUD véhicules** : ajouter, modifier, supprimer un véhicule (table `vehicles`).
+- **Analytics** : nombre de véhicules, valeur du stock, prix moyen, répartition par
+  marque / carburant / carrosserie.
+
+Sécurité : la table `vehicles` est protégée par **RLS** (lecture publique, écriture
+réservée à l'admin authentifié). Les clés Supabase présentes dans `lib/supabase.ts` sont
+les clés **publiques** (URL + clé publishable) prévues pour le navigateur ; la clé secrète
+`service_role` n'est jamais utilisée. Le mot de passe admin est stocké **hashé** dans
+Supabase, jamais dans le code.
+
 ## Feuille de route (cahier des charges ALVEX)
 
 - [x] Front public : accueil, catalogue filtrable, fiche véhicule, reprise, contact
 - [x] Metadata SEO + OpenGraph dynamiques sur les fiches véhicules
-- [ ] API REST/GraphQL + base PostgreSQL (entités `Vehicle`, `Lead`)
-- [ ] Back-office d'administration (CRUD stock, gestion des leads)
-- [ ] Branchement des formulaires (contact, reprise) sur l'API des leads
+- [x] Base PostgreSQL (Supabase) — table `vehicles` + RLS
+- [x] Back-office d'administration `/admin` : CRUD stock + analytics + accès protégé
+- [ ] Brancher le **site public** sur Supabase (catalogue/fiches lus depuis la base)
+- [ ] Entité `Lead` + branchement des formulaires (contact, reprise) sur la base
 - [ ] Pipeline images (WebP/AVIF), sitemap dynamique, JSON-LD Schema.org
 - [ ] Conteneurisation Docker + CI/CD
 
