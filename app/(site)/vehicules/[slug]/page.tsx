@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getSimilarVehicles, getVehicleBySlug, vehicles } from '@/data/vehicles'
+import { getAllSlugs, getSimilarVehicles, getVehicleBySlug } from '@/lib/vehicles'
 import { formatMileage, formatPrice, whatsappLink } from '@/lib/format'
 import { PHONE_NUMBER } from '@/lib/constants'
 import VehicleGallery from '@/components/VehicleGallery'
@@ -9,29 +9,38 @@ import VehicleCard from '@/components/VehicleCard'
 import PageHeader from '@/components/PageHeader'
 import { ArrowRight, Check, Phone, Whatsapp } from '@/components/icons'
 
-export function generateStaticParams() {
-  return vehicles.map((v) => ({ slug: v.slug }))
+// Revalidation ISR + rendu à la demande des nouveaux véhicules.
+export const revalidate = 30
+export const dynamicParams = true
+
+export async function generateStaticParams() {
+  const slugs = await getAllSlugs()
+  return slugs.map((slug) => ({ slug }))
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const vehicle = getVehicleBySlug(params.slug)
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
+  const vehicle = await getVehicleBySlug(params.slug)
   if (!vehicle) return { title: 'Véhicule introuvable' }
   return {
     title: `${vehicle.make} ${vehicle.model} ${vehicle.year}`,
-    description: vehicle.description,
+    description: vehicle.description ?? undefined,
     openGraph: {
       title: `${vehicle.make} ${vehicle.model} ${vehicle.year} — ${formatPrice(vehicle.price)}`,
-      description: vehicle.description,
-      images: [vehicle.images[0]],
+      description: vehicle.description ?? undefined,
+      images: vehicle.images?.length ? [vehicle.images[0]] : undefined,
     },
   }
 }
 
-export default function VehicleDetailPage({ params }: { params: { slug: string } }) {
-  const vehicle = getVehicleBySlug(params.slug)
+export default async function VehicleDetailPage({ params }: { params: { slug: string } }) {
+  const vehicle = await getVehicleBySlug(params.slug)
   if (!vehicle) notFound()
 
-  const similar = getSimilarVehicles(vehicle)
+  const similar = await getSimilarVehicles(vehicle)
   const title = `${vehicle.make} ${vehicle.model}`
 
   const specs: { label: string; value: string }[] = [
@@ -40,9 +49,9 @@ export default function VehicleDetailPage({ params }: { params: { slug: string }
     { label: 'Carburant', value: vehicle.fuel },
     { label: 'Transmission', value: vehicle.transmission },
     { label: 'Carrosserie', value: vehicle.body },
-    { label: 'Couleur', value: vehicle.color },
-    { label: 'Places', value: `${vehicle.seats} places` },
-    { label: 'Puissance', value: `${vehicle.power} ch` },
+    { label: 'Couleur', value: vehicle.color ?? '—' },
+    { label: 'Places', value: vehicle.seats ? `${vehicle.seats} places` : '—' },
+    { label: 'Puissance', value: vehicle.power ? `${vehicle.power} ch` : '—' },
   ]
 
   const waMessage = `Bonjour ALVEX, je suis intéressé(e) par la ${title} ${vehicle.year} (${formatPrice(
