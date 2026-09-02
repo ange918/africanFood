@@ -6,6 +6,9 @@ import Steps from '@/components/home/Steps'
 import Testimonials from '@/components/home/Testimonials'
 import CtaBanner from '@/components/home/CtaBanner'
 
+// Revalidation ISR : les nouveautés de l'admin apparaissent sous 30 s.
+export const revalidate = 30
+
 export default function HomePage() {
   return (
     <>

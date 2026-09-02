@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import type { Vehicle } from '@/data/vehicles'
+import type { Vehicle } from '@/lib/vehicles'
 import { formatMileage, formatPrice } from '@/lib/format'
 import { ArrowRight, Calendar, Fuel, Gauge } from './icons'
 

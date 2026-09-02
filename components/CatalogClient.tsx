@@ -1,7 +1,8 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { bodies, fuels, makes, vehicles as allVehicles } from '@/data/vehicles'
+import { bodies, fuels } from '@/data/vehicles'
+import type { Vehicle } from '@/lib/vehicles'
 import VehicleCard from './VehicleCard'
 
 type SortKey = 'recent' | 'price-asc' | 'price-desc' | 'year-desc'
@@ -15,15 +16,20 @@ const SORTS: { key: SortKey; label: string }[] = [
 
 const PRICE_MAX = 25_000_000
 
-export default function CatalogClient() {
+export default function CatalogClient({ vehicles }: { vehicles: Vehicle[] }) {
   const [make, setMake] = useState('')
   const [fuel, setFuel] = useState('')
   const [body, setBody] = useState('')
   const [maxPrice, setMaxPrice] = useState(PRICE_MAX)
   const [sort, setSort] = useState<SortKey>('recent')
 
+  const makes = useMemo(
+    () => Array.from(new Set(vehicles.map((v) => v.make))).sort(),
+    [vehicles],
+  )
+
   const filtered = useMemo(() => {
-    const result = allVehicles.filter(
+    const result = vehicles.filter(
       (v) =>
         (!make || v.make === make) &&
         (!fuel || v.fuel === fuel) &&
@@ -38,9 +44,11 @@ export default function CatalogClient() {
       case 'year-desc':
         return result.sort((a, b) => b.year - a.year)
       default:
-        return result.sort((a, b) => b.id - a.id)
+        return result.sort(
+          (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
+        )
     }
-  }, [make, fuel, body, maxPrice, sort])
+  }, [vehicles, make, fuel, body, maxPrice, sort])
 
   const reset = () => {
     setMake('')

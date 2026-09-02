@@ -1,9 +1,11 @@
 import Link from 'next/link'
-import { featuredVehicles } from '@/data/vehicles'
+import { getFeaturedVehicles } from '@/lib/vehicles'
 import VehicleCard from '../VehicleCard'
 import { ArrowRight } from '../icons'
 
-export default function Featured() {
+export default async function Featured() {
+  const vehicles = await getFeaturedVehicles()
+
   return (
     <section className="bg-ink py-20">
       <div className="container-x">
@@ -19,11 +21,15 @@ export default function Featured() {
           </Link>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredVehicles.map((vehicle) => (
-            <VehicleCard key={vehicle.id} vehicle={vehicle} />
-          ))}
-        </div>
+        {vehicles.length > 0 ? (
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {vehicles.map((vehicle) => (
+              <VehicleCard key={vehicle.id} vehicle={vehicle} />
+            ))}
+          </div>
+        ) : (
+          <p className="mt-12 text-white/40">Aucun véhicule disponible pour le moment.</p>
+        )}
       </div>
     </section>
   )
