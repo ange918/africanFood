@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import { BRAND_FULL, TAGLINE } from '@/lib/constants'
 
 const inter = Inter({
@@ -34,11 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={`${inter.variable} ${poppins.variable}`}>
-      <body className="min-h-screen bg-ink">
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </body>
+      <body className="min-h-screen bg-ink">{children}</body>
     </html>
   )
 }
